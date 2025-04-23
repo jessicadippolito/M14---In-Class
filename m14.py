@@ -5,7 +5,7 @@ class Trainer:
 
 
 def read_data():
-    found_pakuris = set()
+    found = set()
     trainers = []
     with open("contest.txt", "r") as file:
         for line in file:
@@ -14,11 +14,11 @@ def read_data():
             for pakuri in pakuris:
                 name, level = pakuri.split("-")
                 level = int(level)
-                found_pakuris.add(name)
+                found.add(name)
                 if level > max_level:
                     max_level = level
             trainers.append(Trainer(trainer, max_level))
-    return trainers, found_pakuris
+    return trainers, found
 
 
 def main():
